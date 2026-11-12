@@ -3,6 +3,7 @@ import { dirname, join } from "path";
 import webpush from "web-push";
 import { writePrivateFileAtomicSync } from "./atomic-file";
 import { enLocale } from "./i18n/messages/en";
+import { viLocale } from "./i18n/messages/vi";
 import { zhCNLocale } from "./i18n/messages/zh-CN";
 import { getAgentDir } from "./session-reader";
 
@@ -102,8 +103,9 @@ function pushStatusCode(error: unknown): number | undefined {
  * subscribes; unknown locales fall back to English.
  */
 export function localeText(locale: string, key: "sessionComplete" | "taskFinished"): string {
-  if (locale === "zh-CN") {
-    const message = zhCNLocale.messages[key === "sessionComplete" ? "i18n.sessionComplete" : "i18n.taskFinished"];
+  const plugin = locale === "zh-CN" ? zhCNLocale : locale === "vi" ? viLocale : undefined;
+  if (plugin) {
+    const message = plugin.messages[key === "sessionComplete" ? "i18n.sessionComplete" : "i18n.taskFinished"];
     if (message) return message;
   }
   const message = enLocale.messages[key === "sessionComplete" ? "i18n.sessionComplete" : "i18n.taskFinished"];
