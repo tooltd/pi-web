@@ -1,0 +1,21 @@
+{
+  "settings.builtinTools": "Công cụ tích hợp",
+  "settings.builtinToolsDescription": "Phiên mới theo bộ công cụ đã cấu hình sẽ khởi động với các công cụ này. Lưu vào defaultTools toàn cục.",
+  "agentSwitcher.status.queued": "Trong hàng đợi",
+  "session.noUsage": "Chưa có mức dùng",
+  "session.usageSummary": "{messages} tin nhắn · {tokens} token",
+  "session.usageSummaryOne": "{messages} tin nhắn · {tokens} token",
+  "directoryPicker.selectTypedPath": "Chọn {path}",
+  "chat.operationAborted": "Đã dừng",
+  "chat.bashAlreadyRunning": "Đang có một lệnh bash chạy. Nhấn Esc để huỷ lệnh đó trước.",
+  "chat.outputTruncated": "Output đã bị cắt: chỉ hiện phần cuối.",
+  "chat.fullOutputShown": "Đang hiện toàn bộ output.",
+  "chat.fullOutputTooLarge": "Toàn bộ output quá lớn để hiện ở đây. Hãy tải xuống.",
+  "chat.fullOutputUnavailable": "Toàn bộ output không còn nữa.",
+  "models.providerDisplayName": "Tên hiển thị",
+  "models.providerIdTaken": "Provider khác đã dùng ID \"{name}\". Hãy chọn ID khác.",
+  "models.llamaRouterUrl": "URL router llama.cpp",
+  "models.optionalApiKey": "API key (tuỳ chọn)",
+  "models.llamaEmptyCatalog": "Hãy nạp một mô hình chat trong router llama.cpp rồi làm mới danh mục.",
+  "i18n.providerId": "ID provider"
+}
