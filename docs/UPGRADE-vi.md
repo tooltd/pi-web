@@ -1,6 +1,7 @@
 # Nâng cấp pi-web lên phiên bản mới (giữ tiếng Việt)
 
 Cây nguồn: `~/pi-web-src` · nhánh làm việc: `feat/vietnamese-i18n`
+Remote: `origin` = fork `github.com/tooltd/pi-web` · `upstream` = `github.com/agegr/pi-web`
 Các commit riêng của ta: gói `vi.ts` + patch vào 7 file i18n/web-push.
 Mọi thứ còn lại là của upstream, **không sửa** để rebase còn sạch.
 
@@ -20,7 +21,7 @@ session pi đang chạy bên trong nó — lệnh đó tự giết chính agent 
 cd ~/pi-web-src
 
 # 1. Lấy bản mới (chưa động vào working tree)
-git fetch --depth 1 origin tag vX.Y.Z
+git fetch upstream --depth 1 tag vX.Y.Z
 git log --oneline -1 vX.Y.Z
 
 # 2. Xem upstream có đụng file ta đã patch không
@@ -94,6 +95,8 @@ npm run build
 systemd-run --user --collect systemctl --user restart pi-web.service
 ```
 
+Bản đã push vẫn còn trên fork, khôi phục bằng `git reset --hard origin/feat/vietnamese-i18n`.
+
 Bản `.next` cũ vẫn nằm ở `~/pi-web/node_modules/@agegr/pi-web/.next` (package npm
 0.15.0, không có tiếng Việt) nếu cần chạy lại bản gốc: đổi `ExecStart` về
 `~/pi-web/node_modules/.bin/pi-web`.
@@ -131,4 +134,6 @@ commit đó, chỉ giữ `scripts/` nếu còn hữu ích.
   chạy `node scripts/i18n-vi-sync.mjs --write`.
 - `files.conflictSummary` bỏ `{countSuffix}` có chủ đích (tiếng Việt không chia
   số nhiều); test và script đều đã whitelist key này.
-- Chưa push lên GitHub. `git push -u origin feat/vietnamese-i18n` khi muốn.
+- Đã push: `origin` = `github.com/tooltd/pi-web`, nhánh `feat/vietnamese-i18n`
+  (fork của `agegr/pi-web`). Push tiếp bằng `git push` là đủ.
+- Không mở pull request về `agegr/pi-web` trừ khi muốn đóng góp bản dịch lên upstream.
